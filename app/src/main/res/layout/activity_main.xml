@@ -22,19 +22,23 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/heart2"/>
+            android:src="@drawable/heart2"
+            android:id="@+id/imageViewHp1"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/heart2"/>
+            android:src="@drawable/heart2"
+            android:id="@+id/imageViewHp2"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/heart2"/>
+            android:src="@drawable/heart2"
+            android:id="@+id/imageViewHp3"/>
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/heart2"/>
+                android:src="@drawable/heart2"
+                android:id="@+id/imageViewHp4"/>
         </LinearLayout>
 
 
