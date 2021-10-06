@@ -64,6 +64,7 @@ private int elet;
                 }
                 else{
                     //TODO: Felugró ablak jön (kisebb szám)
+
                 }
             }
         });
