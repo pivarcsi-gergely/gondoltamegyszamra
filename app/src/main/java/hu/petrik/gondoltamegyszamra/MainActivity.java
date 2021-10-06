@@ -5,13 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +24,7 @@ private Random random;
 private int gondoltSzam;
 private int elet;
 private Toast customToast;
-private AlertDialog.Builder alerBuilder;
+private AlertDialog alertBuilder;
 
 
     @Override
@@ -94,7 +92,11 @@ private AlertDialog.Builder alerBuilder;
                 break;
             case 0:
                 hp2.setImageResource(R.drawable.heart1);
-                //TODO: felugró ablak: game over
+                //felugró ablak: game over
+                /*alertBuilder.setTitle("Játék vége!");
+                alertBuilder.create();
+                alertBuilder.show();*/
+                alertBuilder.setTitle("Játék vége!").create().show();
                 break;
         }
     }
@@ -115,25 +117,27 @@ private AlertDialog.Builder alerBuilder;
         textViewSzam = findViewById(R.id.textViewSzam);
         customToast = new Toast(getApplicationContext());
         CreateCustomToast();
-        alerBuilder = new AlertDialog.Builder(getApplicationContext());
+        alertBuilder = new AlertDialog.Builder(getApplicationContext());
         CreateAlertDialog();
     }
 
     private void CreateAlertDialog() {
-        alerBuilder.setMessage("Szeretnél-e új játékot?");
-        alerBuilder.setNegativeButton("Nem", new DialogInterface.OnClickListener() {
+        alertBuilder.setMessage("Szeretnél-e új játékot?");
+        alertBuilder.setNegativeButton("Nem", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();
             }
         });
-        alerBuilder.setPositiveButton("Igen", new DialogInterface.OnClickListener() {
+        alertBuilder.setPositiveButton("Igen", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ujJatek();
                 closeContextMenu();
             }
-        })
+        });
+        // Ne lehessen kilépni, kötelező választani
+        alertBuilder.setCancelable(false);
     }
 
     private void CreateCustomToast() {
